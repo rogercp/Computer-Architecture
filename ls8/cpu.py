@@ -12,7 +12,7 @@ class CPU:
         self.ram = [0] * 256
 
 
-    def.ram_read(self,address):
+    def ram_read(self,address):
         return self.ram[address]
 
     def ram_write(self, address, value):
@@ -71,13 +71,11 @@ class CPU:
 
     def run(self):
         """Run the CPU."""
-        while = True
+        while running is True:
             IR = slef.ram_read(self.pc)
             operand_a = self.ram_read(self.pc +1)
             operand_b = self.ram_read(self.pc + 2)
-            print(IR)
-            print(operand_a)
-            print(operand_b)
+            
 
             self.trace()
 
