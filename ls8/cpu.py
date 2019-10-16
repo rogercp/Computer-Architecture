@@ -93,6 +93,22 @@ class CPU:
             if ir in self.branchTable:
                 self.branchTable[ir](operand_a, operand_b)
             else:
-                print(f"Invalid instruction")
+                print(f"Invalid")
                 
             self.pc += instructionSize
+
+
+    def op_ldi(self, operand_a, operand_b):
+        self.reg[operand_a] = operand_b
+
+    def op_prn(self, operand_a, operand_b):
+        print(self.reg[operand_a])
+        
+    def op_hlt(self, operand_a, operand_b):
+        self.halted = True        
+
+    def op_add(self, operand_a, operand_b):
+        self.alu("ADD", operand_a, operand_b)
+
+    def op_mul(self, operand_a, operand_b):
+        self.alu("MUL", operand_a, operand_b)
