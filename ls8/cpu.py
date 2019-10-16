@@ -72,7 +72,7 @@ class CPU:
     def run(self):
         """Run the CPU."""
         while running is True:
-            IR = slef.ram_read(self.pc)
+            IR = self.ram_read(self.pc)
             operand_a = self.ram_read(self.pc +1)
             operand_b = self.ram_read(self.pc + 2)
             
