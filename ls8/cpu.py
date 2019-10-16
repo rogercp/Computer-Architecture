@@ -2,12 +2,20 @@
 
 import sys
 
+HLT = 0b00000001
+LDI = 0b10000010
+PRN = 0b01000111
+ADD = 0b10100000
+MUL = 0b10100010
+
+
 class CPU:
     """Main CPU class."""
 
     def __init__(self):
         """Construct a new CPU."""
         self.pc = 0
+        self.halted = False
         self.reg = [0] * 8
         self.ram = [0] * 256
 
