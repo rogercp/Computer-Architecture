@@ -1,7 +1,6 @@
 """CPU functionality."""
 
 import sys
-
 HLT = 0b00000001
 LDI = 0b10000010
 PRN = 0b01000111
@@ -32,14 +31,14 @@ class CPU:
     def ram_write(self, address, value):
         self.ram[address] = value
 
-    def load(self):
+    def load(self,file):
         """Load a program into memory."""
 
         address = 0
 
         # For now, we've just hardcoded a program:
 
-       with open(file) as programFile:
+        with open(file) as programFile:
             for line in programFile:
                 splitLine = line.split("#")
                 numLine = splitLine[0].strip()
@@ -89,7 +88,7 @@ class CPU:
             operand_b = self.ram_read(self.pc + 2)
 
             
-            instructionSize = ((ir >> 6)) +1
+            instructionSize = ((ir >> 6)) + 1
             if ir in self.branchTable:
                 self.branchTable[ir](operand_a, operand_b)
             else:
@@ -103,7 +102,7 @@ class CPU:
 
     def op_prn(self, operand_a, operand_b):
         print(self.reg[operand_a])
-        
+            
     def op_hlt(self, operand_a, operand_b):
         self.halted = True        
 
