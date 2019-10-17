@@ -39,7 +39,7 @@ class CPU:
 
         # For now, we've just hardcoded a program:
 
-       with open(file) as programFile:
+        with open(file) as programFile:
             for line in programFile:
                 splitLine = line.split("#")
                 numLine = splitLine[0].strip()
